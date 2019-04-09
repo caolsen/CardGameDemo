@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--DrawA Card View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DrawACardViewController" customModule="GreatCardGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftk-As-0kV">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="1ED-gR-3GM"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="BIU-9V-RjW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <state key="normal" title="Draw A Card"/>
+                                <connections>
+                                    <action selector="drawACardButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dgd-pe-7S6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytK-Lf-dUm">
+                                <rect key="frame" x="20" y="40" width="99" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FN2-tk-NFQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZ3-Sx-sJS">
+                                <rect key="frame" x="305" y="40" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="0Yf-Ai-tlr"/>
+                                    <constraint firstAttribute="height" constant="50" id="kHi-mf-LVU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ytK-Lf-dUm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="1Lt-9d-r2G"/>
+                            <constraint firstItem="ytK-Lf-dUm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1a3-Kc-Isu"/>
+                            <constraint firstItem="ftk-As-0kV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4LS-j5-wTF"/>
+                            <constraint firstItem="OZ3-Sx-sJS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ytK-Lf-dUm" secondAttribute="trailing" constant="8" id="5ZC-U9-Fcy"/>
+                            <constraint firstItem="ftk-As-0kV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="66G-rR-Ytf"/>
+                            <constraint firstItem="OZ3-Sx-sJS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="azA-1f-sWo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OZ3-Sx-sJS" secondAttribute="trailing" constant="20" id="uPb-jb-FEh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="drawACardButton" destination="ftk-As-0kV" id="wLk-gl-7tM"/>
+                        <outlet property="playerNameLabel" destination="ytK-Lf-dUm" id="tef-g1-ufC"/>
+                        <outlet property="playerPointsLabel" destination="OZ3-Sx-sJS" id="OeG-5e-hEX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="92" y="27"/>
+        </scene>
+    </scenes>
+</document>
