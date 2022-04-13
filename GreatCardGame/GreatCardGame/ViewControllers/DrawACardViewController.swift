@@ -10,7 +10,7 @@ import UIKit
 
 class DrawACardViewController: UIViewController {
 
-    private let ruleChecker = RuleChecker()
+    private let ruleChecker = RuleChecker(rule: SimpleRule())
     private var deck: Deck?
 
     private var player = Player() {
@@ -45,9 +45,9 @@ class DrawACardViewController: UIViewController {
     }
 
     private func drawACard() {
-        let drawnCard = deck?.drawCard()
-        let showCardViewController = ShowCardViewController()
-        showCardViewController.drawnCard = drawnCard
+        guard let drawnCard = deck?.drawCard() else { return }
+        
+        let showCardViewController = ShowCardViewController(card: drawnCard)
         showCardViewController.delegate = self
         present(showCardViewController, animated: true, completion: nil)
     }

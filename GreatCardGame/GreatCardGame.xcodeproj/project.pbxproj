@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67B201462807665D004182E9 /* RuleChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B201452807665D004182E9 /* RuleChecker.swift */; };
 		67E5885A22591CDB00438CC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E5885922591CDB00438CC1 /* AppDelegate.swift */; };
 		67E5885C22591CDB00438CC1 /* DrawACardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E5885B22591CDB00438CC1 /* DrawACardViewController.swift */; };
 		67E5885F22591CDB00438CC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E5885D22591CDB00438CC1 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		67B201452807665D004182E9 /* RuleChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleChecker.swift; sourceTree = "<group>"; };
 		67E5885622591CDB00438CC1 /* GreatCardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreatCardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67E5885922591CDB00438CC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67E5885B22591CDB00438CC1 /* DrawACardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawACardViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				67E5887A225C22D000438CC1 /* Rule.swift */,
+				67B201452807665D004182E9 /* RuleChecker.swift */,
 			);
 			path = Rules;
 			sourceTree = "<group>";
@@ -141,11 +144,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Christopher Olsen";
 				TargetAttributes = {
 					67E5885522591CDB00438CC1 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
@@ -191,6 +195,7 @@
 				67E588712259299F00438CC1 /* Deck.swift in Sources */,
 				67E5887922593BA800438CC1 /* Player.swift in Sources */,
 				67E5887B225C22D000438CC1 /* Rule.swift in Sources */,
+				67B201462807665D004182E9 /* RuleChecker.swift in Sources */,
 				67E5886F2259283E00438CC1 /* Suit.swift in Sources */,
 				67E5885A22591CDB00438CC1 /* AppDelegate.swift in Sources */,
 			);
@@ -244,6 +249,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -305,6 +311,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -348,7 +355,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caolsen.GreatCardGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -367,7 +374,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caolsen.GreatCardGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -8,51 +8,70 @@
 
 import UIKit
 
-protocol ShowCardViewControllerDelegate: class {
+protocol ShowCardViewControllerDelegate: AnyObject {
     func didDismiss(withCard card: Card)
 }
 
 class ShowCardViewController: UIViewController {
 
-    var drawnCard: Card!
+    let drawnCard: Card
 
-    let cardImageView = UIImageView()
-    let dismissButton = UIButton()
+    let cardImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let dismissButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 5
+        button.backgroundColor = .purple
+        button.tintColor = .white
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.setTitle("Great!", for: .normal)
+        return button
+    }()
 
     weak var delegate: ShowCardViewControllerDelegate?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    
+    init(card: Card) {
+        self.drawnCard = card
+        super.init(nibName: nil, bundle: nil)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setup() {
         view.backgroundColor = .white
 
         view.addSubview(dismissButton)
-        dismissButton.translatesAutoresizingMaskIntoConstraints = false
-        dismissButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        dismissButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8).isActive = true
-        dismissButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
-        dismissButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
-        dismissButton.layer.cornerRadius = 5
-        dismissButton.backgroundColor = .purple
-        dismissButton.tintColor = .white
-        dismissButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        dismissButton.setTitle("Great!", for: .normal)
-        dismissButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
-
         view.addSubview(cardImageView)
-        cardImageView.translatesAutoresizingMaskIntoConstraints = false
-        cardImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        cardImageView.bottomAnchor.constraint(equalTo: dismissButton.topAnchor, constant: -16).isActive = true
-        cardImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        cardImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        cardImageView.contentMode = .scaleAspectFit
+        
+        dismissButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            cardImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            cardImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            cardImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            cardImageView.bottomAnchor.constraint(equalTo: dismissButton.topAnchor, constant: -16),
+            
+            dismissButton.heightAnchor.constraint(equalToConstant: 44),
+            dismissButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            dismissButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            dismissButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+        ])
 
-        guard let imageName = drawnCard?.imageName else { return }
+        guard let imageName = drawnCard.imageName else { return }
         let cardImage = UIImage(named: imageName)
         cardImageView.image = cardImage
     }
 
-    @objc func dismissView() {
+    @objc private func dismissView() {
         dismiss(animated: true) {
             self.delegate?.didDismiss(withCard: self.drawnCard)
         }
